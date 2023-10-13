@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <title>Tailwind Starter</title>
+    <style>
+      .slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: var(--vb-yellow);
+        box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.5);
+        transition: all 100ms ease-in;
+        cursor: pointer;
+        margin-top: -3px;
+        z-index: 2;
+        position: relative;
+      }
+
+      .slider::-webkit-slider-thumb:hover {
+        outline: 2px solid var(--vb-yellow);
+        background-color: var(--dk-violet);
+        box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.8);
+      }
+
+      .slider::-moz-slider-thumb {
+        appearance: none;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: var(--vb-yellow);
+        box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.5);
+        transition: all 100ms ease-in;
+        cursor: pointer;
+        margin-top: -3px;
+        z-index: 2;
+        position: relative;
+      }
+
+      .slider::-moz-slider-thumb:hover {
+        outline: 2px solid var(--vb-yellow);
+        background-color: var(--dk-violet);
+        box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.8);
+      }
+
+      .transparent {
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- wrapper -->
+    <div
+      class="w-[100vw] h-[100vh] bg-[#2e1344] grid place-items-center overflow-hidden"
+    >
+      <!-- container -->
+      <div class="w-[90%] max-w-[450px] flex flex-col items-center">
+        <h1
+          class="leading-[1.2] text-plwhite opacity-[0.75] text-center uppercase tracking-[2px] text-2xl"
+        >
+          PASSWORD GENARTOR
+        </h1>
+        <!--password field and copy btn  -->
+        <div
+          class="w-full relative bg-dkviolet rounded-[1rem] border-b-[0.35rem] border-solid border-ltviolet2 pt-[0.35rem] m-[1rem] flex items-center"
+        >
+          <input
+            type="text"
+            readonly
+            placeholder="PASSWORD"
+            class="w-full h-full transparent outline-none py-[1.15rem] px-[1rem] text-vbyellow font-[600] text-[1.54rem] leading-[30px] tracking-[1px] pr-[3.25rem] placeholder:text-vbyellow placeholder:uppercase placeholder:opacity-[0.65] placeholder:text-[1.5rem] placeholder:absolute placeholder:top-[50%] placeholder:left-[1.5rem] placeholder:translate-y-[-50%]"
+            id="Password-display"
+            passwordDisplay
+          />
+
+          <button
+            class="mr-[1rem] flex flex-col items-center gap-[3px] cursor-pointer"
+            id="copy-btn"
+          >
+            <img src="copy.svg" alt="copy" width="20px" />
+            <span class="text-plwhite" id="copy-msg"></span>
+          </button>
+        </div>
+
+        <!-- main body -->
+        <div
+          class="bg-dkviolet rounded-[1rem] border-b-[0.35rem] border-solid border-ltviolet2 p-8 w-full"
+        >
+          <!-- Password Length -->
+          <div class="flex justify-between items-center">
+            <p class="text-plwhite text-[1.5rem]">Password Length</p>
+            <span
+              class="text-vbyellow text-[1.5rem] font-[600]"
+              id="length-display"
+            ></span>
+          </div>
+          <!-- slider -->
+          <input
+            type="range"
+            min="1"
+            id="slider"
+            max="20"
+            class="slider appearance-none w-full mt-8 mb-[1.5rem] border-none outline-none rounded-2xl h-3 bg-ltviolet bg-gradient-to-l from-vbviolet to-vbviolet bg-no-repeat cursor-pointer focus:outline-[3px] focus:outline-solid focus:outline-vbyellow -z-40"
+          />
+
+          <!-- checkboxes -->
+          <div class="">
+            <div class="my-4 mx-0 flex items-center gap-y-0 gap-x-4">
+              <input
+                type="checkbox"
+                name=""
+                id="uppercase"
+                class="checkbox appearance-none w-[20px] h-[20px] border-[1px] border-solid border-vbcyan cursor-pointer relative rounded-[0.35rem] checked:bg-vbcyan checked:after:absolute checked:after:content-['✔'] checked:after:text-dktext checked:after:font-[600] checked:after:left-[50%] checked:after:-translate-x-[50%] checked:after:-top-[3.5px]"
+              />
+              <label
+                for="uppercase"
+                class="capitalize text-plwhite text-[1.25rem] tracking-[0.75px]"
+                >Include Uppercase Letters</label
+              >
+            </div>
+
+            <div class="my-4 mx-0 flex items-center gap-y-0 gap-x-4">
+              <input
+                type="checkbox"
+                name=""
+                id="lowercase"
+                class="checkbox appearance-none w-[20px] h-[20px] border-[1px] border-solid border-vbcyan cursor-pointer relative rounded-[0.35rem] checked:bg-vbcyan checked:after:absolute checked:after:content-['✔'] checked:after:text-dktext checked:after:font-[600] checked:after:left-[50%] checked:after:-translate-x-[50%] checked:after:-top-[3.5px]"
+              />
+              <label
+                for="lowercase"
+                class="capitalize text-plwhite text-[1.25rem] tracking-[0.75px]"
+                >Include Lowercase Letters</label
+              >
+            </div>
+
+            <div class="my-4 mx-0 flex items-center gap-y-0 gap-x-4">
+              <input
+                type="checkbox"
+                name=""
+                id="numbers"
+                class="checkbox appearance-none w-[20px] h-[20px] border-[1px] border-solid border-vbcyan cursor-pointer relative rounded-[0.35rem] checked:bg-vbcyan checked:after:absolute checked:after:content-['✔'] checked:after:text-dktext checked:after:font-[600] checked:after:left-[50%] checked:after:-translate-x-[50%] checked:after:-top-[3.5px]"
+              />
+              <label
+                for="numbers"
+                class="capitalize text-plwhite text-[1.25rem] tracking-[0.75px]"
+                >Include Numbers</label
+              >
+            </div>
+
+            <div class="my-4 mx-0 flex items-center gap-y-0 gap-x-4">
+              <input
+                type="checkbox"
+                name=""
+                id="symbol"
+                class="checkbox appearance-none w-[20px] h-[20px] border-[1px] border-solid border-vbcyan cursor-pointer relative rounded-[0.35rem] checked:bg-vbcyan checked:after:absolute checked:after:content-['✔'] checked:after:text-dktext checked:after:font-[600] checked:after:left-[50%] checked:after:-translate-x-[50%] checked:after:-top-[3.5px]"
+              />
+              <label
+                for="symbol"
+                class="capitalize text-plwhite text-[1.25rem] tracking-[0.75px]"
+                >Include Symbols</label
+              >
+            </div>
+          </div>
+          <!-- strength -->
+          <div class="flex items-center justify-between mt-[1.75rem] mb-[2rem]">
+            <p class="text-plwhite text-[1.5rem]">Strength</p>
+            <div class="w-[1.5em] h-[1.5em] rounded-[50%]" id="indicator"></div>
+          </div>
+          <!-- generate Button -->
+          <button
+            class="bg-vbviolet w-full py-[1rem] rounded-[0.75rem] border-b-[0.35rem] border-vbyellow border-solid uppercase tracking-[1px] text-vbyellow font-[600] text-[1.25rem] items-center hover:scale-105 transition-all duration-150"
+            id="generate-btn"
+          >
+            GENERATE PASSWORD
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
